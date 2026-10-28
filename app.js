@@ -20,14 +20,15 @@ function makeCard(after){
   else if(a==='del'){if(list.children.length>1){c.remove()}else{t.value='';upd();say('Ultimul editor ramane, golit')}}
  });
  const g=c.querySelector('.grip');
- g.addEventListener('pointerdown',e=>{e.preventDefault();g.setPointerCapture(e.pointerId);c.classList.add('drag')});
- g.addEventListener('pointermove',e=>{
-  if(!c.classList.contains('drag'))return;
-  const nxt=[...list.children].filter(x=>x!==c).find(x=>{const r=x.getBoundingClientRect();return e.clientY<r.top+r.height/2});
-  if(nxt!==c.nextElementSibling)list.insertBefore(c,nxt||null);
+ g.addEventListener('pointerdown',e=>{
+  if(e.button!==0)return;e.preventDefault();c.classList.add('drag');
+  const mv=ev=>{
+   const nxt=[...list.children].filter(x=>x!==c).find(x=>{const r=x.getBoundingClientRect();return ev.clientY<r.top+r.height/2});
+   if(nxt!==c.nextElementSibling)list.insertBefore(c,nxt||null);
+  };
+  const up=()=>{c.classList.remove('drag');document.removeEventListener('pointermove',mv);document.removeEventListener('pointerup',up);document.removeEventListener('pointercancel',up)};
+  document.addEventListener('pointermove',mv);document.addEventListener('pointerup',up);document.addEventListener('pointercancel',up);
  });
- const stop=()=>c.classList.remove('drag');
- g.addEventListener('pointerup',stop);g.addEventListener('pointercancel',stop);
  if(after)after.after(c);else list.appendChild(c);
  upd();return c;
 }
