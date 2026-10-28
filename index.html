@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Editor rapid</title>
+<style>
+:root{--bg:#f6f5f2;--panel:#ffffff;--ink:#1f2320;--muted:#6b716c;--line:#d9dbd5;--accent:#1f6f5c;--focus:#2f9c82;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:13px;line-height:1.5;padding:16px}
+#list{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.card{display:inline-block;max-width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.row{width:0;min-width:100%;display:flex;flex-wrap:wrap;gap:4px}
+.bar{margin-bottom:6px}
+button{font:inherit;font-size:11px;font-weight:500;height:26px;padding:0 7px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button:hover{background:var(--bg)}
+button:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+textarea{display:block;width:340px;height:90px;min-width:150px;max-width:calc(100vw - 56px);min-height:40px;resize:both;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);font-family:ui-monospace,Consolas,Menlo,monospace;font-size:13px;line-height:1.5}
+textarea:focus{outline:2px solid var(--focus);outline-offset:1px}
+.foot{justify-content:space-between;gap:8px;margin-top:4px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.msg{color:var(--accent)}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#f6f5f2">
+<link rel="icon" href="icon-192.png">
+</head>
+<body>
+<div id="list"></div>
+<script src="app.js"></script>
+</body>
+</html>
