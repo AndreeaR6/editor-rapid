@@ -12,6 +12,9 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple
 .card{display:inline-block;max-width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
 .row{width:0;min-width:100%;display:flex;flex-wrap:wrap;gap:4px}
 .bar{margin-bottom:6px}
+.grip{display:inline-flex;align-items:center;justify-content:center;height:26px;padding:0 6px;color:var(--muted);cursor:grab;user-select:none;touch-action:none;letter-spacing:-2px;font-size:14px}
+.card.drag{border-color:var(--focus);box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.card.drag .grip{cursor:grabbing}
 button{font:inherit;font-size:11px;font-weight:500;height:26px;padding:0 7px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
 button:hover{background:var(--bg)}
 button:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
